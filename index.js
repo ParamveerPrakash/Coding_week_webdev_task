@@ -1,6 +1,7 @@
 const productsList = document.getElementById("productsList");
 const searchBar = document.getElementById("searchBar");
 let listedProducts = [];
+// Function for filtering the products based on our typed keywords in search bar
 searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value.toLowerCase();
   console.log(searchString);
@@ -13,6 +14,7 @@ searchBar.addEventListener("keyup", (e) => {
   });
   displayProducts(filteredProducts);
 });
+//Function which loads all the required products
 const loadProducts = async () => {
   try {
     const res = await fetch("product_dummy_data.txt");
@@ -26,7 +28,7 @@ const loadProducts = async () => {
     console.error(err);
   }
 };
-
+//Function which displays all the products we want on the frontend
 const displayProducts = (data) => {
   const htmlString = data
     .map((product) => {
